@@ -53,7 +53,7 @@ object FlinkEngineUtils extends Logging {
 
   def checkFlinkVersion(): Unit = {
     val flinkVersion = EnvironmentInformation.getVersion
-    if (SUPPORTED_FLINK_VERSIONS.contains(FLINK_RUNTIME_VERSION)) {
+    if (SUPPORTED_FLINK_VERSIONS.exists(t => flinkVersion.contains(t.toString))) {
       info(s"The current Flink version is $flinkVersion")
       if (FlinkEngineUtils.FLINK_RUNTIME_VERSION <= "1.18") {
         warn("The support for Flink 1.17 and 1.18 are deprecated, and will be removed " +
