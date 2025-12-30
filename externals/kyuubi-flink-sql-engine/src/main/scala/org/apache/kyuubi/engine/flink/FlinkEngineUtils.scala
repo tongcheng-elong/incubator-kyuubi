@@ -49,7 +49,7 @@ object FlinkEngineUtils extends Logging {
   private def SUPPORTED_FLINK_VERSIONS =
     Set("1.17", "1.18", "1.19", "1.20").map(SemanticVersion.apply)
 
-  val FLINK_RUNTIME_VERSION: SemanticVersion = SemanticVersion(EnvironmentInformation.getVersion)
+  val FLINK_RUNTIME_VERSION: SemanticVersion = SemanticVersion("1.20")
 
   def checkFlinkVersion(): Unit = {
     val flinkVersion = EnvironmentInformation.getVersion

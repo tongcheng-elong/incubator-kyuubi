@@ -55,7 +55,8 @@ class SemanticVersionSuite extends AnyFunSuite {
 
   test("companion class compare version at most") {
     assert(SemanticVersion("1.12").isVersionAtMost("2.8.8-SNAPSHOT"))
-    val runtimeVersion = SemanticVersion("1.12.4")
+    val runtimeVersion = SemanticVersion("1.20.0-SNAPSHOT")
+    assert(runtimeVersion.isVersionAtLeast("1.19"))
     assert(runtimeVersion.isVersionAtMost("2.8.8-SNAPSHOT"))
     assert(runtimeVersion.isVersionAtMost("1.14.4-SNAPSHOT"))
     assert(runtimeVersion.isVersionAtMost("1.12.4-SNAPSHOT"))
